@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 @EqualsAndHashCode(of = { "id" })
 public class User {
-    private long id;
+    private Long id;
     @Email(message = "Введите электронную почту в корректном формете")
     private String email;
     @NotBlank(message = "Логин не может быть пустым")
@@ -19,4 +19,12 @@ public class User {
     private String name;
     @Past(message = "Дата рождения не может быть позже текущего дня")
     private LocalDate birthday;
+
+    public String getName() {
+        if (name.isEmpty()) {
+            return login;
+        } else {
+            return name;
+        }
+    }
 }

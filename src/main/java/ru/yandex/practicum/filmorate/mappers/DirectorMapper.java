@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
-import ru.yandex.practicum.filmorate.model.Mpa;
+import ru.yandex.practicum.filmorate.model.Director;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,13 +13,13 @@ import java.sql.SQLException;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
 @Component
-public class MpaMapper implements RowMapper<Mpa> {
+public class DirectorMapper implements RowMapper<Director> {
 
     @Override
-    public Mpa mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Mpa mpa = new Mpa();
-        mpa.setId(rs.getLong("ID"));
-        mpa.setName(rs.getString("NAME"));
-        return mpa;
+    public Director mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Director director = new Director();
+        director.setId(rs.getLong("id"));
+        director.setName(rs.getString("name"));
+        return director;
     }
 }
